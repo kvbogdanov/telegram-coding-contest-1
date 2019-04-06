@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">    
+</head>
+<body class="night">
+	<h1>Graph sample</h1>
+    <p>
+    	<a href="index.html">Switch to Day Mode</a>
+    	<a href="zero.html">Switch to Zero-based Axis</a>
+    </p>
+    <h3>Graph1</h3>
+    <div id="graph1"></div>
+    <h3>Graph2</h3>
+    <div id="graph2"></div>
+    <h3>Graph3</h3>
+    <div id="graph3"></div>
+    <h3>Graph4</h3>
+    <div id="graph4"></div>
+    <h3>Graph5</h3>
+    <div id="graph5"></div>
+
+
+<script src="js/compressed.js" async defer></script>
+<script type="text/javascript">
+window.onload = function() {
+    var data = [];
+
+    fetch("./js/chart_data.json")
+        .then(response => response.json())
+        .then(function(data) {
+            var graph1 = new Graph('graph1', data[0]);
+            var graph2 = new Graph('graph2', data[1]);
+            var graph3 = new Graph('graph3', data[2]);
+            var graph4 = new Graph('graph4', data[3]);
+            var graph5 = new Graph('graph5', data[4]);
+        });
+};
+</script>
+</body>
+</html>    
